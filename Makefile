@@ -13,7 +13,7 @@ all: $(LIBNAME)
 %.o: %.c
 	$(CC) $(WFLAGS) -c -o $@ $(INCLUDES) $(CFLAGS) $<
 
-LIBNL_OBJ=attr.o msg.o
+LIBNL_OBJ=attr.o msg.o genl.o
 
 $(LIBNAME): $(LIBNL_OBJ)
 	rm -f $@
@@ -24,6 +24,8 @@ install:
 	cp include/*.h $(prefix)/include/libnl-micro/
 	install -d -m 0755 $(prefix)/include/libnl-micro/netlink
 	cp include/netlink/*.h $(prefix)/include/libnl-micro/netlink/
+	install -d -m 0755 $(prefix)/include/libnl-micro/netlink/genl
+	cp include/netlink/genl/*.h $(prefix)/include/libnl-micro/netlink/genl/
 	install -d -m 0755 $(prefix)/include/libnl-micro/linux
 	cp include/linux/*.h $(prefix)/include/libnl-micro/linux/
 	install -d -m 0755 $(prefix)/lib
