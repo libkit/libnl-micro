@@ -3,6 +3,7 @@ prefix=/usr/local
 UNAME=$(shell uname)
 CC=gcc
 AR=ar
+RANLIB=ranlib
 WFLAGS=-Wall
 CFLAGS=-O2
 INCLUDES:=-Iinclude
@@ -18,6 +19,7 @@ LIBNL_OBJ=attr.o msg.o genl.o
 $(LIBNAME): $(LIBNL_OBJ)
 	rm -f $@
 	$(AR) rcu $@ $^
+	$(RANLIB) $@
 
 install:
 	install -d -m 0755 $(prefix)/include/libnl-micro
