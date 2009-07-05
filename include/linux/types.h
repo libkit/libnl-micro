@@ -1,10 +1,6 @@
 #ifndef _LINUX_TYPES_H
 #define _LINUX_TYPES_H
 
-#ifdef linux
-#include_next <linux/types.h>
-#else
-
 #include <sys/types.h>
 #include <stdint.h>
 
@@ -23,7 +19,5 @@ typedef uint32_t __be32;
 typedef uint64_t __u64;
 typedef uint64_t __le64;
 typedef uint64_t __be64;
-
-#endif
 
 #endif /* _LINUX_TYPES_H */
